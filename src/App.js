@@ -178,9 +178,9 @@ class App extends Component {
           <button className="myButton" onClick={this.onRestartGame}>Volver a empezar</button>
           {ready ? <CircleContainer itemCount={dataToRender.length} circleSize={30} itemSize={6}>
               {
-                dataToRender.map(({url, name, id, order}) => (
-                  <li key={id}>
-                    {id!== this.state.id && <div style={{color: '#11998e', backgroundColor: 'white', borderRadius: '10px', marginBottom: '5px', fontSize: '20px'}}>{this.getCharacter(order).character}</div>}
+                dataToRender.map(({url, name, personId, order}) => (
+                  <li key={personId}>
+                    {personId!== this.state.id && <div style={{color: '#11998e', backgroundColor: 'white', borderRadius: '10px', marginBottom: '5px', fontSize: '20px'}}>{this.getCharacter(order).character}</div>}
                     <img src={url}/>
                     <div style={{fontSize: '12px'}}>{name}</div>
                   </li>
