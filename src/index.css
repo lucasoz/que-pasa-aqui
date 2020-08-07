@@ -18,6 +18,7 @@ code {
 .inline {
   display: inline-block;
   margin-right: 20px;
+  position: relative;
 }
 
 .grid-container {
