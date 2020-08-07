@@ -4,9 +4,9 @@ import './App.css';
 import { db } from './firebase';
 import _ from 'lodash';
 
-const Profile = ({ person: { name, url }, circle }) => (
-  <p>
-    <img className={`profileImage ${circle && 'circleImage'}`} src={url} />
+const Profile = ({ person: { name, url }, circle, inline }) => (
+  <p className={`${inline ? 'inline' : ''}`} >
+    <img className={`profileImage ${circle ? 'circleImage' : ''}`} src={url} />
     <br/>
     {name}
   </p>
@@ -48,6 +48,7 @@ class App extends Component {
         
         }
       ],
+      player: null,
       round: 1,
     }
   }
@@ -73,13 +74,14 @@ class App extends Component {
   }
 
   render() {
-    const { data, round } = this.state;
+    const { data, round, player } = this.state;
 
     const dataToRender = _.orderBy(data, 'order');
     return (
       <div className="App">
         <header className="App-header">
-          <p className="title">
+          {player ? <div>
+            <p className="title">
             <button className="myButton" onClick={() => this.setState({ round: 1 })}>1</button>
             <button className="myButton" onClick={() => this.setState({ round: 2 })}>2</button>
             <strong className="titleText">¿Qué está pasando?</strong>
@@ -120,10 +122,20 @@ class App extends Component {
                   </li>
                 ))
               }
-            </ul>
-          }
+            </ul>}
+          </div>
+          : <div style={{width: '100%'}}>
+              <h1>
+                ¿Quién eres?
+              </h1>
+              <div style={{width: '100%'}}>
+                {dataToRender.map((person) => (
+                  <Profile person={person} inline style={{display: 'inline-block'}}/>
+                ))}
+              </div>
+          </div>}
         </header>
-      </div>
+        </div>
     );
 
   }
