@@ -132,14 +132,14 @@ class App extends Component {
             </ul>
             : <div style={{width: '100%'}}>
               <h1>
-                Elije un personaje
+                Elige un personaje
               </h1>
               <p>
-                Puedes elejir personajes históricos, de películas, famosos, todos vivos o muertos. Elijé uno que creas que todos conocen.
+                Piensa en un personaje real o de ficción. Te será asignado un personaje que otro jugador haya escogido para que tú trates de adivinar. Sólo puedes hacer preguntas que se respondan con "Sí", "No" o "No se sabe".
               </p>
               <div class="form__group field" >
                 <input type="input" class="form__field" placeholder="Name" name="name" id='name' required ref={this.campo} onChange={this.onChangeCharacter} value={this.character} />
-                <label for="name" class="form__label">¿El nombre de tu personajes es?</label>
+                <label for="name" class="form__label">¿El nombre de tu personaje es?</label>
               </div>
               <h2>
                 ¿Quién eres?
