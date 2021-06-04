@@ -19,7 +19,6 @@ const createItems = (itemCount, circleSize) => {
     `
     rot = rot + angle;
   }
-
   return css`${styles}`;
 }
 
